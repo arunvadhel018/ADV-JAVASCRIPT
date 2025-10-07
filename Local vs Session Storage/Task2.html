@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Session Form</h3>
+    <form id="userForm">
+      Name: <input type="text" id="name" /><br /><br />
+      Email: <input type="email" id="email" /><br /><br />
+      <button type="button" onclick="saveData()">Save</button>
+    </form>
+
+    <script>
+      function saveData() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("email", email);
+
+        alert("Form data saved in sessionStorage!");
+      }
+
+      document.getElementById("name").value =
+        sessionStorage.getItem("name") || "";
+      document.getElementById("email").value =
+        sessionStorage.getItem("email") || "";
+    </script>
+  </body>
+</html>
